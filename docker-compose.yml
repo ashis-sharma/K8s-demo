@@ -1,0 +1,26 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+  home-service:
+    build: ./home-service
+    ports:
+      - "5000:5002"
+  personal-service:
+    build: ./personal-service
+    ports:
+      - "5000:5000"
+  work-service:
+    build: ./work-service
+    ports:
+      - "5000:5001"
+  main-service:
+    build: ./main-service
+    ports:
+      - "5000:5003"
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+
+  

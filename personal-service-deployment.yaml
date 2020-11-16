@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: personal-microservice
+  labels:
+    app: personal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: personal
+  template:
+    metadata:
+      labels:
+        app: personal
+    spec:
+      containers:
+      - name: personal
+        image: personal-service
+        ports:
+        - containerPort: 5000
+        env:
+          - name: DATABASE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: mongodb-configmap
+                key: database_url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: personal-service
+spec:
+  selector:
+    app: personal
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000

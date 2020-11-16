@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: work-microservice
+  labels:
+    app: work
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: work
+  template:
+    metadata:
+      labels:
+        app: work
+    spec:
+      containers:
+      - name: work
+        image: work-service
+        ports:
+        - containerPort: 5001
+        env:
+          - name: DATABASE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: mongodb-configmap
+                key: database_url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: work-service
+spec:
+  selector:
+    app: work
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5001
