@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: main
-        image: mainservice.azurecr.io/mainservice
+        image: mainservice.azurecr.io/main-service:v1
         ports:
         - containerPort: 5003
         env:
