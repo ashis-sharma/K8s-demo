@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: home
-        image: homeservice.azurecr.io/home-service:v1
+        image: todos.azurecr.io/home-service:v1
         ports:
         - containerPort: 5002
         env:
