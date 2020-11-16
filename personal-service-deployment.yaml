@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: personal
-        image: personal-service
+        image: personalservice.azurecr.io/personalservice
         ports:
         - containerPort: 5000
         env:
