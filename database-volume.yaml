@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-persistent-storage
+spec:
+  capacity:
+    storage: 1Gi
+  storageClassName: ""
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  azureDisk:
+    kind: Managed
+    diskName: datastorage
+    diskURI:  /subscriptions/9e17b35f-a735-460f-8c2f-0d95502001b2/resourceGroups/MC_learning_demo-app_centralindia/providers/Microsoft.Compute/disks/datastorage

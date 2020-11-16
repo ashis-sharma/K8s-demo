@@ -40,13 +40,19 @@ spec:
         volumeMounts:
           - name: mongo-persistent-storage
             mountPath: /data/db
-  volumeClaimTemplates:
-  - metadata:
-      name: mongo-persistent-storage
-      annotations:
-        volume.beta.kubernetes.io/storage-class: "fast"
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 1Gi
+      volumes:
+        - name: mongo-persistent-storage
+          persistentVolumeClaim:
+              claimName: mongo-pv-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pv-claim
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

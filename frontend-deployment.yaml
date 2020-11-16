@@ -33,3 +33,16 @@ spec:
       port: 5000
       targetPort: 3000
       nodePort: 30000
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: frontend-autoscaler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: frontend-app
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50
