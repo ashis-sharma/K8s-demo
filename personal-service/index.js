@@ -3,7 +3,7 @@ const corsMiddleware = require('restify-cors-middleware');
 const MongoClient = require('mongodb').MongoClient;
 const { ObjectId } = require('mongodb');
 
-const dbURL = 'mongodb://mongo:27017';
+const dbURL = `mongodb://${process.env.DATABASE_URL}:27017`;
 const dbName = 'Task';
 
 const cors = corsMiddleware({  
@@ -11,6 +11,8 @@ const cors = corsMiddleware({
   allowHeaders: ["Authorization"],
   exposeHeaders: ["Authorization"]
 });
+
+console.log(process.env.DATABASE_URL)
 
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());

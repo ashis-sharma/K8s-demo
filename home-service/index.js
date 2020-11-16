@@ -3,7 +3,7 @@ const corsMiddleware = require('restify-cors-middleware');
 const MongoClient = require('mongodb').MongoClient;
 const { ObjectId } = require('mongodb');
 
-const dbURL = process.env.DATABASE_URL;
+const dbURL = `mongodb://${process.env.DATABASE_URL}:27017`;
 const dbName = 'Task';
 
 const cors = corsMiddleware({  

@@ -14,9 +14,9 @@ server.pre(cors.preflight);
 server.use(cors.actual);
 
 const url = {
-    personalServiceURL: process.env.PERSONAL_SERVICE_URL,
-    workServiceURL: process.env.WORK_SERVICE_URL,
-    homeServiceURL: process.env.HOME_SERVICE_URL
+    personalServiceURL: `http://${process.env.PERSONAL_SERVICE_URL}`,
+    workServiceURL: `http://${process.env.WORK_SERVICE_URL}`,
+    homeServiceURL: `http://${process.env.HOME_SERVICE_URL}`
 }
 
 function getIndividualValues(values){
