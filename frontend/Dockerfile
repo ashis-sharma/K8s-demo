@@ -8,7 +8,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /usr/share/nginx/html
 
-COPY build/ .
+COPY build/ ./
 
 CMD ["nginx", "-g", "daemon off;"]
 
