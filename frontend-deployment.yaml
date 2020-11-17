@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: todos.azurecr.io/frontend:v1
+        image: todoapps.azurecr.io/frontend:v1
         ports:
-        - containerPort: 3000
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -31,7 +31,7 @@ spec:
   ports:
     - protocol: TCP
       port: 5000
-      targetPort: 3000
+      targetPort: 80
       nodePort: 30000
 ---
 apiVersion: autoscaling/v1

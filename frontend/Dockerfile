@@ -1,27 +1,27 @@
-# FROM nginx:alpine
+FROM nginx:alpine
 
-# RUN rm -rf /usr/share/nginx/html/*
+RUN rm -rf /usr/share/nginx/html/*
 
-# RUN apk update && apk upgrade
+RUN apk update && apk upgrade
 
-# COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# WORKDIR /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
 
-# COPY build/ .
+COPY build/ .
 
-# CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
 
-FROM node:12
+# FROM node:12
 
-WORKDIR /app
+# WORKDIR /app
 
-COPY package.json ./
+# COPY package.json ./
 
-RUN npm i
+# RUN npm i
 
-COPY . .
+# COPY . .
 
-EXPOSE 3000
+# EXPOSE 3000
 
-CMD ["npm","start"]
+# CMD ["npm","start"]
