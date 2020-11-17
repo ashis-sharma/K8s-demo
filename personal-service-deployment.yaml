@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: personal
-        image: todos.azurecr.io/personal-service:v1
+        image: todoapps.azurecr.io/personal-service:v1
         ports:
         - containerPort: 5000
         env:

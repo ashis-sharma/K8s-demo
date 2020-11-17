@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: work
-        image: todos.azurecr.io/work-service:v1
+        image: todoapps.azurecr.io/work-service:v1
         ports:
         - containerPort: 5001
         env:
