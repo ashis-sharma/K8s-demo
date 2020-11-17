@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Work from './components/Work';
 import './index.css';
 import './style.css';
+import { url } from './components/constants';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,7 +22,7 @@ ReactDOM.render(
 function Title(){
   const [stats, setStats] = React.useState({});
   React.useEffect(() => {
-    fetch("http://main-service").then(response => response.json()).then(data => setStats(data));
+    fetch(`${url}`).then(response => response.json()).then(data => setStats(data));
   })
   return <h1>Total {stats.total} Tasks | Completed {stats.completed} | Pending {stats.inCompleted}</h1>;
 }

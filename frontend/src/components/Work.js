@@ -1,11 +1,12 @@
 import React from 'react'
 import Task from './Task';
+import { url } from './constants'
 
 export default function Work(){
     const [tasks, setTasks] = React.useState([]);
     const [textValue,setTextValue] = React.useState("");
 
-    const  workServiceURL= "http://work-service";
+    const  workServiceURL= `${url}/work-service`;
 
     async function onAdd(value){
         const options ={
@@ -13,7 +14,7 @@ export default function Work(){
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({title: value, completed: false})
         }
-        const response = await fetch(`${workServiceURL}`,options).then(resp => resp.json()).then(data => data.items);
+        const response = await fetch(`${workServiceURL}`,options).then(resp => resp.json()).then(data => data);
         setTasks(response);
         setTextValue("");
     }
@@ -24,7 +25,7 @@ export default function Work(){
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({id,value})
         }
-        const response = await fetch(`${workServiceURL}`,options).then(resp => resp.json()).then(data => data.items);
+        const response = await fetch(`${workServiceURL}`,options).then(resp => resp.json()).then(data => data);
         setTasks(response);
     }
 
@@ -34,13 +35,13 @@ export default function Work(){
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({id,value})
         }
-        const response = await fetch(`${workServiceURL}`,options).then(resp => resp.json()).then(data => data.items);
+        const response = await fetch(`${workServiceURL}`,options).then(resp => resp.json()).then(data => data);
         setTasks(response);
     }
 
     React.useEffect(() => {
         fetch(`${workServiceURL}`).then(response => response.json()).then(data => {
-            setTasks(data.items)
+            setTasks(data)
         });
     },[])
 

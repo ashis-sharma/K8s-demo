@@ -1,8 +1,9 @@
 import React from 'react'
 import Task from './Task';
+import { url } from './constants'
 
 export default function Home() {
-    const homeServiceURL= "http://home-service";
+    const homeServiceURL= `${url}/home-service`;
     const [tasks, setTasks] = React.useState([]);
     const [textValue,setTextValue] = React.useState("");
 
@@ -12,7 +13,7 @@ export default function Home() {
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({title: value, completed: false})
         }
-        const response = await fetch(`${homeServiceURL}`,options).then(resp => resp.json()).then(data => data.items);
+        const response = await fetch(`${homeServiceURL}`,options).then(resp => resp.json()).then(data => data);
         setTasks(response);
         setTextValue("");
     }
@@ -23,7 +24,7 @@ export default function Home() {
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({id,value})
         }
-        const response = await fetch(`${homeServiceURL}`,options).then(resp => resp.json()).then(data => data.items);
+        const response = await fetch(`${homeServiceURL}`,options).then(resp => resp.json()).then(data => data);
         setTasks(response);
     }
 
@@ -33,13 +34,13 @@ export default function Home() {
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({id,value})
         }
-        const response = await fetch(`${homeServiceURL}`,options).then(resp => resp.json()).then(data => data.items);
+        const response = await fetch(`${homeServiceURL}`,options).then(resp => resp.json()).then(data => data);
         setTasks(response);
     }
 
     React.useEffect(() => {
         fetch(`${homeServiceURL}`).then(response => response.json()).then(data => {
-            setTasks(data.items)
+            setTasks(data)
         });
     },[])
 
