@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: main
-        image: todoapps.azurecr.io/main-service:v1
+        image: todoapps.azurecr.io/main-service:1.0
         ports:
         - containerPort: 5003
         env:
