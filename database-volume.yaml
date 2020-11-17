@@ -4,12 +4,12 @@ metadata:
   name: mongo-persistent-storage
 spec:
   capacity:
-    storage: 1Gi
+    storage: 2Gi
   storageClassName: ""
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   azureDisk:
     kind: Managed
-    diskName: datastorage
-    diskURI: /subscriptions/9e17b35f-a735-460f-8c2f-0d95502001b2/resourceGroups/learning/providers/Microsoft.Compute/disks/datastorage
+    diskName: mongostorage
+    diskURI: /subscriptions/9e17b35f-a735-460f-8c2f-0d95502001b2/resourceGroups/learning/providers/Microsoft.Compute/disks/mongostorage
