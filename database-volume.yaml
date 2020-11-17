@@ -11,5 +11,5 @@ spec:
     - ReadWriteOnce
   azureDisk:
     kind: Managed
-    diskName: datastorage
-    diskURI:  /subscriptions/9e17b35f-a735-460f-8c2f-0d95502001b2/resourceGroups/MC_learning_demo-app_centralindia/providers/Microsoft.Compute/disks/datastorage
+    diskName: data-storage
+    diskURI: /subscriptions/9e17b35f-a735-460f-8c2f-0d95502001b2/resourceGroups/learning/providers/Microsoft.Compute/disks/data-storage
