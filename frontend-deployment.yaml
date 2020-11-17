@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend-app
-        image: todoapps.azurecr.io/frontend-app:v1
+        image: todoapps.azurecr.io/frontend-app:1.0
         ports:
         - containerPort: 3000
 ---
