@@ -4,6 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 const { ObjectId } = require('mongodb');
 
 const dbURL = `mongodb://${process.env.DATABASE_URL}:27017`;
+// const dbURL = `mongodb://127.0.0.1:27017`;
 const dbName = 'Task';
 
 const cors = corsMiddleware({  
@@ -12,8 +13,6 @@ const cors = corsMiddleware({
   exposeHeaders: ["Authorization"]
 });
 
-console.log(process.env.DATABASE_URL)
-
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
 server.pre(cors.preflight);  
@@ -21,6 +20,7 @@ server.use(cors.actual);
 
 MongoClient.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
   if (err) throw err;
+  console.log("DB Connected");
   const col = client.db(dbName).collection('personal');
 
   server.get('/', (req, res, next) => {
@@ -47,8 +47,8 @@ MongoClient.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true }, 
     })
   })
 
-  server.del('/', (req, res, next) => {
-    col.deleteOne({_id:ObjectId(req.body.id)} , (err, resp) => {
+  server.del('/:id', (req, res, next) => {
+    col.deleteOne({_id:ObjectId(req.params.id)} , (err, resp) => {
       if(err) throw err;
       col.find().toArray((err, items) => {
         return res.json(200,{items});

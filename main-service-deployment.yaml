@@ -41,11 +41,11 @@ kind: Service
 metadata:
   name: main-service
 spec:
+  type: LoadBalancer
   selector:
     app: main
   ports:
-    - name: http
-      protocol: TCP
+    - protocol: TCP
       port: 80
       targetPort: 5003
 ---
