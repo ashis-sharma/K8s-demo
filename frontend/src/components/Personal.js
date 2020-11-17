@@ -2,7 +2,7 @@ import React from 'react'
 import Task from './Task';
 
 export default function Personal() {
-    const personalServiceURL= "http://personal-service:5000";
+    const personalServiceURL= "http://personal-service";
     const [tasks, setTasks] = React.useState([]);
     const [textValue,setTextValue] = React.useState("");
 

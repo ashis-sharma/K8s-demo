@@ -2,7 +2,7 @@ import React from 'react'
 import Task from './Task';
 
 export default function Home() {
-    const homeServiceURL= "http://home-service:5000";
+    const homeServiceURL= "http://home-service";
     const [tasks, setTasks] = React.useState([]);
     const [textValue,setTextValue] = React.useState("");
 

@@ -5,7 +5,7 @@ export default function Work(){
     const [tasks, setTasks] = React.useState([]);
     const [textValue,setTextValue] = React.useState("");
 
-    const  workServiceURL= "http://work-service:5000";
+    const  workServiceURL= "http://work-service";
 
     async function onAdd(value){
         const options ={

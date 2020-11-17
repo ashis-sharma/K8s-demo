@@ -34,8 +34,9 @@ spec:
   selector:
     app: personal
   ports:
-    - protocol: TCP
-      port: 5000
+    - name: http
+      protocol: TCP
+      port: 80
       targetPort: 5000
 ---
 apiVersion: autoscaling/v1

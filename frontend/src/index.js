@@ -21,7 +21,7 @@ ReactDOM.render(
 function Title(){
   const [stats, setStats] = React.useState({});
   React.useEffect(() => {
-    fetch("http://main-service:5000").then(response => response.json()).then(data => setStats(data));
+    fetch("http://main-service").then(response => response.json()).then(data => setStats(data));
   })
   return <h1>Total {stats.total} Tasks | Completed {stats.completed} | Pending {stats.inCompleted}</h1>;
 }
