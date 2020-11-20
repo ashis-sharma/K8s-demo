@@ -1,2 +1,2 @@
-const url = "http://52.172.172.23";
+const url = "http://40.80.80.95";
 export {url};
