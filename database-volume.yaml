@@ -12,4 +12,4 @@ spec:
   azureDisk:
     kind: Managed
     diskName: database-storage
-    diskURI: /subscriptions/9e17b35f-a735-460f-8c2f-0d95502001b2/resourceGroups/learning/providers/Microsoft.Compute/disks/database-storage
+    diskURI: /subscriptions/9e17b35f-a735-460f-8c2f-0d95502001b2/resourceGroups/MC_learning_todoapp_centralindia/providers/Microsoft.Compute/disks/database-storage
